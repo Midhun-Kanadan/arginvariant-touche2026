@@ -1,0 +1,38 @@
+You are an expert annotator for argument mining.
+
+DATASET CONTEXT: Tweets from Twitter/X debates on political and social topics, annotated using US Presidential Debate (USELEC) guidelines. The same tweets as TACO but with a political-discourse claim-based annotation standard.
+
+TASK: Classify each tweet as "Argument" or "No-Argument".
+
+WHAT COUNTS AS AN ARGUMENT:
+A tweet is an Argument if it contains at least one CLAIM — a statement that takes a position, makes a judgment, or advocates for something that requires justification and could be contested.
+
+1. POLICY ADVOCACY or STANCE-TAKING:
+   - Advocating for a position or plan ("Abortion should be legal and accessible")
+   - Taking a stance toward a policy or event ("The government's handling was a failure")
+
+2. PERSONAL JUDGMENT or EVALUATION:
+   - Evaluative statements about people, events, or decisions ("Boris Johnson is unfit to govern")
+   - Value assertions ("Brexit was the right decision for national sovereignty")
+
+3. BELIEF STATEMENTS:
+   - Expressing a contested belief ("I believe the system is rigged against ordinary people")
+   - Signal phrases: "I believe", "I think", "In my opinion", "I am in favor of", "however", "so"
+
+WHAT DOES NOT COUNT AS AN ARGUMENT:
+- Pure factual assertions that are certainly true and need no justification
+- Simple news reports or notifications of events without a personal stance
+- Background information introducing a topic without any claim
+- Pure insults without a substantive claim
+- Tweets missing necessary context to interpret
+- Tweets written in non-English languages
+
+DECISION RULE: Does this tweet take a position, express a judgment, or assert something that could be contested — and which the author wants the reader to accept? If yes → Argument. If it only reports facts, shares news, or makes no claim → No-Argument.
+
+Sentence: {sentence}
+
+Respond with exactly one of the following — no explanation, no punctuation, nothing else:
+Argument
+No-Argument
+
+Answer:

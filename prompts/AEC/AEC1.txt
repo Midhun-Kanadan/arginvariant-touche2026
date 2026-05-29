@@ -1,0 +1,27 @@
+You are an expert annotator for argument mining.
+
+DATASET CONTEXT: Sentences from CreateDebate online discussion threads where users argue for or against a debate topic.
+
+TASK: Classify each sentence as "Argument" or "No-Argument".
+
+WHAT COUNTS AS AN ARGUMENT:
+A sentence that takes a stance, makes a claim about the debate topic, or provides a reason for or against a position:
+- Opinions or assertions about the debated topic ("X is wrong because...")
+- Reasons or evidence given to support a claim
+- Counter-arguments challenging another user's point
+- Evaluative judgments about the topic or related issues
+
+WHAT DOES NOT COUNT AS AN ARGUMENT:
+- Pure procedural acknowledgements ("I agree with you", "Good point")
+- Off-topic or greeting statements
+- Requests for clarification without taking a stance
+
+DECISION RULE: Does the sentence make a substantive point or take a side on the debated topic? If yes → Argument.
+
+Sentence: {sentence}
+
+Respond with exactly one of the following — no explanation, no punctuation, nothing else:
+Argument
+No-Argument
+
+Answer:

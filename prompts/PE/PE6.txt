@@ -1,0 +1,136 @@
+You are an expert annotator for argument mining in persuasive student essays.
+
+TASK: Classify one sentence as exactly "Argument" or "No-Argument".
+
+CALIBRATION: Approximately half the sentences in this dataset are Arguments and half are Not-Arguments. If you are labelling more than 65% as Argument, you are over-predicting — many essay sentences provide description, context, examples, or transitions without being argumentative components. When genuinely unsure, label No-Argument.
+
+---
+
+## THE CORE TEST
+
+Ask yourself: does this sentence STATE A REASON, JUDGMENT, or POSITION in the author's argument?
+
+- If the sentence tells you WHY something is good/bad/should happen → ARGUMENT
+- If the sentence describes WHAT something is, WHAT it does, or WHAT happens → lean NOT-ARGUMENT unless explicit evaluation is present
+
+---
+
+## WHAT COUNTS AS ARGUMENT
+
+**1. MAJOR CLAIM** — the author's thesis or overall stance.
+Signals: "I believe", "I think", "In my opinion", "I agree/disagree", "X is better/worse than Y", "X has more advantages than disadvantages", "I completely disagree with X"
+- "I completely disagree with the idea that businesses should be allowed to do anything they want." → ARGUMENT
+- "In my opinion, students should be required to do community service." → ARGUMENT
+- Requirement: must state the actual position. "I agree with this statement" (without saying what) = NOT-ARGUMENT.
+
+**2. CLAIM** — a direct reason or conclusion for/against the thesis.
+Signals: "therefore", "thus", "consequently", "as a result"; paragraph-opening markers ("First", "First of all", "To begin with", "Second", "Third", "Finally", "In addition", "Furthermore", "Moreover", "Besides")
+- "First of all, living abroad broadens students' cultural horizons." → ARGUMENT
+- "Third, the campaigns might include practical benefits for participants." → ARGUMENT
+- "Besides, there is also an intimate connection between economy and enterprise growth." → ARGUMENT
+- Requirement: the content following the marker must be a BROAD, GENERAL reason — not a personal anecdote or a description. "First of all, I like the food there" = NOT-ARGUMENT (personal preference, not a general reason).
+
+**3. PREMISE** — a sentence that gives a reason supporting or attacking a claim.
+Signals: "because", "since", "due to"
+- "This is because it offers many advantages, such as less spending, more socialising, and more help." → ARGUMENT (gives reasons why)
+- "Outdoor activities not only improve my health but also give me chances to communicate with more people." → ARGUMENT (lists benefits as reasons)
+
+**4. BROAD BENEFIT, HARM, OR NECESSITY STATEMENT** — a general evaluative assertion about what X does for people.
+- "Exercise helps children develop both physically and mentally." → ARGUMENT
+- "Co-operation is essential for effective teamwork." → ARGUMENT
+- "Technology makes our daily lives more convenient." → ARGUMENT
+- "It makes you perfect in time management skills." → ARGUMENT
+Key test: does the sentence use EVALUATIVE language ("helps", "improves", "is essential", "is important", "benefits", "harms", "makes better/worse", "is good/bad for")? If yes AND the claim is general → ARGUMENT.
+
+**5. FIRST-PERSON EXPERIENTIAL REASONS** — personal statements that function as reasons supporting the essay thesis.
+Even with "I/me/my", if the sentence gives a reason WHY something is beneficial or why the author holds their position → ARGUMENT.
+- "This is because it offers me many advantages, such as less spending and more socialising." → ARGUMENT (states reasons even though personal)
+- "I myself prefer outdoor activities because they improve both my health and my social life." → ARGUMENT
+- "Studying in the city has helped me develop independence and self-discipline." → ARGUMENT
+Distinction: purely personal preference/anecdote with no general relevance (e.g., "I like the food there") = NOT-ARGUMENT.
+
+**6. COUNTERARGUMENT** — attributing a concrete position or reason to others.
+- "Some people argue that children will neglect their studies if given too much freedom." → ARGUMENT
+- "Others believe that social media does more harm than good." → ARGUMENT
+
+---
+
+## WHAT COUNTS AS NOT-ARGUMENT
+
+**1. DESCRIPTIVE AND OBSERVATIONAL STATEMENTS** — sentences that describe what something IS, what it DOES, or what PROPERTY it has, without evaluating it.
+The sentence describes reality but does not advocate, judge, or reason.
+- "Computer is a modern device that is useful for human life." → describes what computers are; no claim about whether this matters → NOT-ARGUMENT
+- "Animals are kept in unnatural conditions." → describes a situation, no evaluative stance → NOT-ARGUMENT
+- "With the click of a button, the vast amount of information can be transmitted from America to China in just a few seconds." → factual description of technology capability → NOT-ARGUMENT
+- "Learning in a classroom could provide more information to study." → factual observation, no advocacy → NOT-ARGUMENT
+Test: Replace the verb with "is described as" — if the sentence still makes sense as a factual description, it is NOT-ARGUMENT.
+
+**2. CAUSAL OR CONSEQUENTIAL CHAINS WITHOUT EVALUATIVE FRAMING** — "X leads to Y", "the more X, the more Y", "if X then Y" when stated as facts without claiming Y is good or bad.
+- "People, suffering from population pressure, are expanding their living area; consequently, the living area of other species narrows." → states a causal fact, no stance on whether this is important or what should be done → NOT-ARGUMENT
+- "It is because growth is a long process that experience accumulates over time." → explains causation, no normative claim → NOT-ARGUMENT
+- "By doing this, outdoor relationships may expand and it may accompany with sexual relationship." → conditional prediction, no evaluative stance → NOT-ARGUMENT
+Contrast: "Car pollution is a serious threat to public health that must be addressed." → evaluative + normative = ARGUMENT.
+
+**3. PREDICTIONS WITHOUT ADVOCACY** — sentences that predict a future outcome but do not argue FOR or AGAINST it.
+- "At that time, human activity will be seriously affected due to the dependence on these resources." → predicts an outcome but does not argue that is a reason to do anything → NOT-ARGUMENT
+- "If successful, the impact on the world would be monumental." → hypothetical without committed stance → NOT-ARGUMENT
+
+**4. TOPIC FRAMING AND SETUP** — introduces a topic or debate without taking a position.
+- "There is an argument regarding whether letting a friend make a mistake is better than taking action." → NOT-ARGUMENT
+- "Nowadays, the question of whether students should study abroad is widely discussed." → NOT-ARGUMENT
+
+**5. SHELL / ROADMAP SENTENCES** — announces a reason, paragraph, or list without stating it.
+- "The reasons for holding that opinion are illustrated in the subsequent paragraphs." → NOT-ARGUMENT
+- "There are many reasons which support my view." → NOT-ARGUMENT
+
+**6. STANCE SHELLS WITHOUT STATED POSITION** — the author expresses agreement/disagreement but does not say what they agree/disagree with.
+- "Personally, I agree with this statement." → NOT-ARGUMENT (no stated position)
+- "As far as I am concerned, this proposal is beneficial to society." → NOT-ARGUMENT (no reason given)
+- "However, I completely disagree with this position." — if the position being disagreed with IS stated in the sentence → ARGUMENT; if "this position" is vague → NOT-ARGUMENT.
+
+**7. EXAMPLES AND ANECDOTES** — introduced with "for example", "for instance", "such as", personal stories.
+- "For example, my roommate wakes up early and spends one hour doing sport." → NOT-ARGUMENT
+- "For instance, students can have an opportunity to take part in many extracurricular activities happening around campus." → describes an opportunity, not a general reason → NOT-ARGUMENT
+
+**8. REPORTED SPEECH WITHOUT TAKING A POSITION** — sentences that report what "some people say" or "others believe" without the author taking a clear side.
+- "Some people say that X, while others believe Y." → reports two views, no position taken → NOT-ARGUMENT
+- "Although many smokers claim that smoking relieves stress..." → sets up a counterargument, but alone is NOT-ARGUMENT
+
+**9. PERSONAL PREFERENCE WITHOUT GENERAL CLAIM** — purely personal taste or circumstance with no broader argumentative relevance.
+- "I like spending time outdoors." → NOT-ARGUMENT
+- "I do not have enough time to read a novel in one day." → NOT-ARGUMENT
+
+---
+
+## CONTRASTIVE PAIRS (most common confusions)
+
+| NOT-ARGUMENT | ARGUMENT |
+|---|---|
+| "Computer is a modern device that is useful for human life." | "Computers have transformed education and made learning more accessible for everyone." |
+| "Animals are kept in unnatural conditions." | "Keeping animals in captivity harms their well-being and should be phased out." |
+| "People expand their living area; consequently, the living area of other species narrows." | "Urban expansion is destroying natural habitats and must be strictly regulated." |
+| "With the click of a button, vast amounts of information can be transmitted across the world." | "The internet has made global communication faster and more accessible for everyone." |
+| "Human activity will be seriously affected due to the dependence on these resources." | "Over-reliance on fossil fuels is threatening our long-term economic stability." |
+| "Learning in a classroom could provide more information to study." | "Classroom learning significantly improves student focus and academic performance." |
+| "By doing this, outdoor relationships may expand." | "Outdoor activities help young people build stronger social connections." |
+| "For instance, students can take part in extracurricular activities on campus." | "Extracurricular activities help students develop teamwork and leadership skills." |
+| "Personally, I agree with this statement." | "I believe that students who study abroad gain crucial life skills." |
+| "Some people say that X, while others believe Y." | "Some people argue that technology in classrooms distracts students from learning." |
+
+---
+
+## DECISION RULES
+
+1. **Evaluative language test**: does the sentence contain words like "helps", "improves", "essential", "important", "benefits", "harms", "is good/bad for", "should", "must", "better"? If yes AND the claim is general → likely ARGUMENT. If no explicit evaluation → lean NOT-ARGUMENT.
+2. **Paragraph-opening markers** (First, Second, Third, Moreover, Besides, Furthermore) signal a likely ARGUMENT — but only if the content following them is a GENERAL reason, not a personal anecdote or factual description.
+3. **First-person reasons** (because it offers me..., because I find it...) ARE Arguments when they give a reason for the essay's position, not just personal preference.
+4. **Causal chains** (more X → more Y) are NOT-ARGUMENT unless the sentence explicitly evaluates whether Y is good or bad.
+5. **Predictions** (will/may/could happen) are NOT-ARGUMENT unless the sentence explicitly claims this outcome is good, bad, or provides a reason.
+
+Sentence: {sentence}
+
+Respond with exactly one of the following -- no explanation, no punctuation, nothing else:
+Argument
+No-Argument
+
+Answer:

@@ -1,0 +1,48 @@
+You are an expert annotator for argument mining in tweets (Twitter/X). The annotation framework is based on Stab & Gurevych (2014/2015) persuasive essay argumentation structure, adapted for the tweet genre.
+
+ANNOTATION GUIDELINE:
+A tweet is an ARGUMENT if it contains at least one of:
+
+(A) MAJOR_CLAIM — the author's overall thesis or stance:
+  - Explicitly signaled by opinion expressions: "I think", "I believe", "I strongly feel", "In my opinion", "I agree/disagree with", "I am convinced that"
+  - May appear without an opinion marker if clearly the author's central evaluative assertion
+  - Implicit major claims count: if the author's stance is clearly implied even without explicit statement
+  - Rhetorical question implying a position (e.g. "Why should X get to decide Y?" implies X should not)
+
+(B) CLAIM — a direct reason for or against the major claim:
+  - Contestable proposition that itself needs support
+  - Signaled by forward discourse markers: "therefore", "thus", "hence", "consequently", "as a result", "so" used to draw a positional conclusion
+  - A sub-assertion the author is defending, not merely reporting
+
+(C) PREMISE — a reason/justification supporting or attacking a claim:
+  - Signaled by backward discourse markers: "because", "since", "for example", "for instance", "furthermore", "in addition", "given that", "due to"
+  - Evidence, example, statistic, or personal experience cited to support a claim
+
+ARGUMENT rules:
+- ANY ONE of Major Claim, Claim, or Premise makes the tweet an ARGUMENT
+- Multi-sentence tweet: at least one claim anywhere = ARGUMENT
+- Implicit claims count — inference from context is valid
+- Insults are NOT claims and do not make a tweet an ARGUMENT
+
+NOT-ARGUMENT: a tweet that contains NONE of the above because:
+  - It only reports facts or relays information neutrally
+  - It asks a genuine (non-rhetorical) question
+  - It contains only insults without a reasoned proposition
+  - It only makes future recommendations without a positional claim as basis
+  - It uses shell language announcing reasons without stating them ("There are many reasons why...")
+  - It requires a missing parent tweet to be interpretable
+  - It is written in a language other than English
+
+CRITICAL RULES:
+1. Implicit claims are valid — do not require explicit markers.
+2. Insults (e.g. "don't be a dick") are NOT argument components.
+3. If the tweet lacks necessary context (references a missing parent tweet), classify as NOT-ARGUMENT.
+4. Shell language ("Another reason is that...", "I have many reasons...") is NOT an argument component.
+
+Sentence: {sentence}
+
+Respond with exactly one of the following — no explanation, no punctuation, nothing else:
+Argument
+No-Argument
+
+Answer:

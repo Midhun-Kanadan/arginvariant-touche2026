@@ -1,0 +1,27 @@
+You are an expert annotator for argument mining.
+
+DATASET CONTEXT: Sentences expressing preference or superiority between technologies, tools, or software (e.g., Python vs Matlab, Linux vs Windows).
+
+TASK: Classify each sentence as "Argument" or "No-Argument".
+
+WHAT COUNTS AS AN ARGUMENT:
+A sentence that asserts one option is better, more suitable, or superior to another, with or without explicit justification:
+- Direct comparisons ("X is faster than Y", "X outperforms Y")
+- Preference statements ("I prefer X because...", "X is better for this task")
+- Superiority or recommendation claims ("X is the best tool for...", "use X instead of Y")
+- Evaluative judgments about features or usability
+
+WHAT DOES NOT COUNT AS AN ARGUMENT:
+- Neutral descriptions of features without comparative judgment
+- Pure questions without taking a stance
+- Factual statements about what a tool does without evaluating it
+
+DECISION RULE: Does the sentence assert that one option is better, more suitable, or more preferred than another? If yes → Argument.
+
+Sentence: {sentence}
+
+Respond with exactly one of the following — no explanation, no punctuation, nothing else:
+Argument
+No-Argument
+
+Answer:

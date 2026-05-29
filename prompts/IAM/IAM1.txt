@@ -1,0 +1,27 @@
+You are an expert annotator for argument mining.
+
+DATASET CONTEXT: Sentences gathered from heterogeneous web sources including news articles, blogs, forum posts, and online editorials on a wide range of topics.
+
+TASK: Classify each sentence as "Argument" or "No-Argument".
+
+WHAT COUNTS AS AN ARGUMENT:
+A sentence that expresses a position, makes a debatable claim, or provides a reason for such a claim:
+- Editorial opinions or evaluative judgments ("X is harmful because...")
+- Claims that require justification ("X causes Y", "X is better than Y")
+- Causal, comparative, or normative assertions that could be disputed
+- Reasons or evidence offered to support a stated position
+
+WHAT DOES NOT COUNT AS AN ARGUMENT:
+- Purely factual reporting without stance ("The event occurred on Monday")
+- Neutral descriptions or background information with no argumentative intent
+- Questions or requests without asserting a position
+
+DECISION RULE: Does the sentence assert something that a reasonable reader could question or challenge — or provide a reason supporting such an assertion? If yes → Argument.
+
+Sentence: {sentence}
+
+Respond with exactly one of the following — no explanation, no punctuation, nothing else:
+Argument
+No-Argument
+
+Answer:

@@ -1,0 +1,50 @@
+You are an expert annotator for comparative sentence identification. Sentences come from web text (Common Crawl) across three domains: Computer Science (programming languages, databases, tech standards), Brands (cars, electronics, food products), and Random item pairs (any objects).
+
+ANNOTATION GUIDELINE:
+A sentence is an ARGUMENT if it expresses a ONE-VS-MANY OR ONE-VS-ONE ORIENTED COMPARISON — a direct comparison between specific named items where one item or group is consistently preferred, superior, or inferior.
+
+For ARGUMENT, ALL THREE conditions must hold:
+
+(1) NAMED COMPARATOR: The comparison must be between specific named items — not against something vague or indefinite.
+  NOT-ARGUMENT: "Ruby is definitely easier to learn" — easier than what? No named comparator.
+  NOT-ARGUMENT: "There is nothing better than Python." — vague comparator.
+  NOT-ARGUMENT: "X is better than most." — "most" is not a specific named item.
+  ARGUMENT: "Python is slower than Java." — both items named.
+  ARGUMENT: "Windows XP and Ubuntu run better than Windows Vista." — all items named.
+  ARGUMENT: "Wii is slightly better than PS2, GC, and Xbox." — all items named, one group wins.
+
+(2) DIRECTIONAL COMPARISON: One side consistently comes out ahead — the sentence asserts a comparative advantage, disadvantage, or inequality.
+  Note: Hedging, qualification, and negation do NOT cancel a comparison — they still assert direction.
+  ARGUMENT: "I don't think Haskell is any better than Python." — asserts Python ≥ Haskell.
+  ARGUMENT: "I am very skeptical that Swift is faster than Objective-C." — asserts doubt about Swift's speed advantage = Objective-C likely ≥ Swift.
+  ARGUMENT: "Floating-point multiplies may be faster than integer multiplies." — directional, even if uncertain.
+  ARGUMENT: "Ruby is far slower than Python in general." — "in general" does not create a conditional; direction is stable.
+  NOT-ARGUMENT: "Python is better for data science, while Java is better for enterprise." — each item wins on a completely separate domain; no single direction.
+  NOT-ARGUMENT: "Firefox is better at privacy but Chrome is faster." — split win on separate attributes, no overall winner.
+
+(3) COMPARATIVE STATEMENT: The sentence is not a genuine question that asks whether a comparison is true.
+  NOT-ARGUMENT: "Is Python better than Java?" — asking which is better, no answer asserted.
+  ARGUMENT (EXCEPTION): A question that ASSERTS a comparative fact rather than genuinely inquiring counts as an Argument. Signals: "Why is X faster than Y?" (asserts X is faster, asks why), "Wait, X is safer than Y?" (expresses surprise at an asserted fact), questions where the comparative answer is already stated within the question.
+
+A sentence is NOT AN ARGUMENT if:
+  - The comparison is against something vague or indefinite: "better than most", "nothing better than", "something way better"
+  - The comparative adjective has no specific second item to compare against: "Ruby is definitely easier to learn" (easier than what?)
+  - Each item wins on its own completely separate domain with equal framing — no overall directional winner
+  - It is a genuine question asking which item is better without asserting an answer
+
+CRITICAL RULES:
+1. NAMED COMPARATOR: Both sides must include specific named items. Comparisons to "most", "everything else", "something better" are NOT-ARGUMENT.
+2. HEDGING KEEPS DIRECTION: "may be faster", "I don't think X is better", "skeptical X is faster" still assert a direction → ARGUMENT.
+3. NEGATED COMPARISONS COUNT: "X is NOT better than Y" still asserts a comparison (Y ≥ X) → ARGUMENT.
+4. MULTI-ITEM SAME-SIDE: "A and B are faster than C", "A is faster than B, C, and D" — all named, one side wins → ARGUMENT.
+5. EQUAL-DOMAIN SPLIT: Only when each item wins on a completely separate dimension with symmetric framing is there no overall winner → NOT-ARGUMENT.
+6. QUESTION EXCEPTION: Genuine "which is better?" questions are NOT-ARGUMENT. Assertive questions that state a comparison as fact are ARGUMENT.
+7. Comparative words (better, worse, faster, easier) alone do NOT guarantee ARGUMENT — all three conditions above must hold.
+
+Sentence: {sentence}
+
+Respond with exactly one of the following — no explanation, no punctuation, nothing else:
+Argument
+No-Argument
+
+Answer:

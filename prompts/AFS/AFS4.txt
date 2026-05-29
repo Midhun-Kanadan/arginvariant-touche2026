@@ -1,0 +1,58 @@
+You are an expert annotator for argument mining in online debate dialogues from the Internet Argument Corpus (IAC 2.0). Topics covered include gun control, gay marriage, and death penalty.
+
+ANNOTATION GUIDELINE:
+A sentence is an ARGUMENT if it takes a POSITION on the debate topic — a claim, stance, or reason that advances one side. The test: could this EXACT sentence (word-for-word, as written) appear as a bullet point in the Pro or Con column of a curated debate summary like ProCon.org?
+
+## What counts as ARGUMENT
+
+A sentence that does ONE of the following:
+  - States a position or conclusion: "The death penalty does not deter crime."
+  - Provides a reason or evidence FOR a position: "Countries with stricter gun laws have fewer gun deaths."
+  - Makes a causal or conditional claim advancing a position: "If background checks were universal, fewer guns would reach criminals."
+  - A rhetorical question with a clear embedded answer: "Does allowing same-sex couples to marry significantly harm you in any way?" → implies No → ARGUMENT
+  - A premise stated as evidence: "In addition to federal background check law, Virginia has a separate state background check requirement." → ARGUMENT (used to argue for stricter laws)
+
+## What does NOT count as ARGUMENT
+
+**DESCRIBE NOT ARGUE (most common failure):** Reporting that something happened, what courts ruled, what history shows, or what a study found — WITHOUT the sentence itself taking a position on whether that is good or bad, right or wrong.
+  - "Now the courts have held that it's a right." → NOT-ARGUMENT (reports a ruling, no position taken)
+  - "After opposition from the NRA, 22 Democrats joined Republicans to vote down the bill." → NOT-ARGUMENT (reports an event)
+  - "Prior to the A-bombs, the allies had been fire-bombing Japanese cities for months." → NOT-ARGUMENT (historical fact)
+  - "It appears that the fetus takes a 'breath' of amniotic fluid in the womb." → NOT-ARGUMENT (biological observation, no stance)
+
+**CONTEXT-DEPENDENT:** The sentence refers to something outside itself (this study, they, he, the system) without naming it — so a reader cannot tell what is being argued.
+  - "It's important to note that the study was conducted only for select high-population areas." → NOT-ARGUMENT (which study?)
+  - "They are shooting kids with toy guns except they are using the real thing." → NOT-ARGUMENT ("they" is undefined)
+  - "Excluding males over 44 and most females means that more than half the population is excluded." → NOT-ARGUMENT (excluded from what?)
+
+**META-DISCOURSE OR PROCEDURE:**
+  - "You're missing my point." / "I'm not saying that." → NOT-ARGUMENT
+  - Comments about the debate itself rather than the debate topic
+
+**PURE PERSONAL ATTACKS:** No reference to the debate topic at all.
+
+**TOO VAGUE:** Could not meaningfully appear in either column of a Pro/Con summary.
+
+## Critical rules
+
+1. **DESCRIBE vs. ARGUE is the primary distinction.** If the sentence reports what IS (facts, history, court rulings, events, statistics without evaluative framing), it DESCRIBES. If it asserts what SHOULD BE, what IS WRONG, or WHY something MATTERS for the debate, it ARGUES.
+   - "Studies show more gun deaths in high-gun-ownership states." — describes a finding, borderline NOT-ARGUMENT
+   - "The fact that gun-heavy states have more deaths proves gun ownership is dangerous." — argues from the finding → ARGUMENT
+
+2. **EXACT SENTENCE TEST.** The sentence must be usable word-for-word. If you would need to paraphrase or add context to make it work as a debate bullet → NOT-ARGUMENT.
+
+3. **OPPONENT-ADDRESSING is NOT automatically NOT-ARGUMENT.** If the sentence attributes a debate position to the opponent AND the attribution is substantive, it can be ARGUMENT.
+   - "You are arguing that guns make us safer, but that ignores the evidence." → ARGUMENT
+   - "You failed to read my post." → NOT-ARGUMENT (purely personal)
+
+4. **HEDGED POSITIONS ARE STILL ARGUMENTS.** "I'm a little unsure about denying marriage status to gays" expresses a debate-relevant stance even with hedging.
+
+5. **ADJACENT TOPICS are NOT-ARGUMENT** unless they directly support or contest gun control / gay marriage / death penalty. Drug policy, employment economics, general philosophy without connection → NOT-ARGUMENT.
+
+Sentence: {sentence}
+
+Respond with exactly one of the following — no explanation, no punctuation, nothing else:
+Argument
+No-Argument
+
+Answer:

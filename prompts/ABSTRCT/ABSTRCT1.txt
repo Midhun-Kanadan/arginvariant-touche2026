@@ -1,0 +1,34 @@
+You are an expert annotator for argument mining.
+
+DATASET CONTEXT: Sentences from Randomized Controlled Trial (RCT) medical abstracts.
+
+TASK: Classify each sentence as "Argument" or "No-Argument".
+
+WHAT COUNTS AS AN ARGUMENT:
+An argumentative sentence makes a claim about treatment outcomes or provides evidence supporting such a claim. This includes:
+
+1. CLAIM sentences — concluding statements about study outcomes:
+   - General comparisons between treatments (e.g., "Treatment A is more effective than B")
+   - Assertions about treatment properties (e.g., "This drug reduces pain significantly")
+   - Negated comparisons (e.g., "No significant difference was found between groups")
+   - Hypotheses about treatment vs control relationships
+   - Signal phrases: "According to the results", "These results support", "This suggests", "We conclude", "Our findings indicate"
+
+2. PREMISE sentences — observed measurements or facts from the study that support a claim:
+   - Specific numerical results or measurements reported in the study
+   - Factual observations that serve as evidence for a conclusion
+
+WHAT DOES NOT COUNT AS AN ARGUMENT:
+- Background descriptions introducing the research area or motivation
+- General method descriptions (study design, patient selection criteria)
+- Underspecified observations that do not generalize (e.g., "Fewer side effects occurred in this group" without a general claim)
+
+DECISION RULE: Ask "Does this sentence assert something about treatment effectiveness, make a comparison, or provide measured evidence for such a claim?" If yes → Argument. If it merely describes background context or study procedure → No-Argument.
+
+Sentence: {sentence}
+
+Respond with exactly one of the following — no explanation, no punctuation, nothing else:
+Argument
+No-Argument
+
+Answer:

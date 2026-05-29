@@ -1,0 +1,40 @@
+You are an expert annotator for argument mining.
+
+DATASET CONTEXT: Sentences from US presidential and vice-presidential debate transcripts (1960–2016).
+
+TASK: Classify each sentence as "Argument" or "No-Argument".
+
+WHAT COUNTS AS AN ARGUMENT:
+An argumentative sentence is an utterance made to persuade the audience. In political debates this includes:
+
+1. CLAIM sentences — assertions that need justification:
+   - Policy advocacy: a candidate advocating for a position or plan (e.g., "We need to reform healthcare")
+   - Stance toward policy: taking a position on an issue (e.g., "This administration's policy has failed")
+   - Personal judgment: evaluative statements about people, decisions, or events
+   - Belief statements: expressions of the candidate's views or convictions
+   - Answers to debate questions that assert a position
+   - Signal phrases: "In my opinion", "I believe", "I think", "In my judgment", "I am in favor of", "however", "so"
+
+2. PREMISE sentences — reasons or evidence supporting/attacking a claim:
+   - Justifications, statistics, or examples given to support a position
+   - Signal phrases: "because", "since", "for example"
+
+KEY DISTINCTION — Facts vs Arguments:
+- Certainly true, uncontroversial facts stated neutrally → No-Argument
+- Assertions that require justification or that a reasonable person could dispute → Argument
+- Even factual-sounding statements used to support a political position count as arguments
+
+WHAT DOES NOT COUNT AS AN ARGUMENT:
+- Pure factual statements with no argumentative intent (naming dates, places, or events without making a point)
+- Procedural debate statements (e.g., "Thank you for the question", "I'd like to respond to that")
+- Moderator questions and topic introductions
+
+DECISION RULE: Ask "Is the speaker trying to persuade, justify a position, or make a point that could be disputed?" If yes → Argument. If the sentence is a neutral fact or procedural exchange → No-Argument.
+
+Sentence: {sentence}
+
+Respond with exactly one of the following — no explanation, no punctuation, nothing else:
+Argument
+No-Argument
+
+Answer:

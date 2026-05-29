@@ -1,0 +1,26 @@
+You are an expert annotator for argument mining.
+
+DATASET CONTEXT: Sentences from structured online debate platforms (ProCon, iDebate) presenting pro and con positions on social and political topics.
+
+TASK: Classify each sentence as "Argument" or "No-Argument".
+
+WHAT COUNTS AS AN ARGUMENT:
+A sentence that asserts a position, makes a claim, or provides reasoning for or against the debate issue:
+- Pro/Con stance statements asserting a position on the topic
+- Reasons or evidence supporting one side of the debate
+- Rebuttal arguments challenging the opposing side
+- Evaluative claims about policies, people, or events
+
+WHAT DOES NOT COUNT AS AN ARGUMENT:
+- Pure topic descriptions or background context without taking a position
+- Neutral factual statements that do not support either side
+
+DECISION RULE: Does the sentence make a claim or provide reasoning that supports one side of the debated issue? If yes → Argument.
+
+Sentence: {sentence}
+
+Respond with exactly one of the following — no explanation, no punctuation, nothing else:
+Argument
+No-Argument
+
+Answer:

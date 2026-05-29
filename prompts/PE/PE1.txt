@@ -1,0 +1,37 @@
+You are an expert annotator for argument mining.
+
+DATASET CONTEXT: Sentences from persuasive student essays on controversial topics.
+
+TASK: Classify each sentence as "Argument" or "No-Argument".
+
+WHAT COUNTS AS AN ARGUMENT:
+An argumentative sentence is one that expresses the author's stance, makes a claim, or provides a reason supporting or attacking a claim. Three types:
+
+1. MAJOR CLAIM (thesis statement) — the central position of the essay:
+   - Found in introduction or conclusion
+   - Expresses the author's overall stance on the topic
+   - Signal phrases: "In my opinion", "From my point of view", "I believe that", "I think that", "I strongly believe", "I am convinced that"
+
+2. CLAIM — a central reason for or against the major claim:
+   - Usually the first sentence of a body paragraph
+   - Supports or attacks the major claim
+   - Signal phrases: "therefore", "thus", "hence", "consequently", "as a result", "for this reason", "this shows that"
+
+3. PREMISE — a reason or evidence supporting/attacking a claim:
+   - Provides justification, examples, or counter-reasoning
+   - Signal phrases: "because", "since", "given that", "for example", "for instance", "although", "even though", "despite"
+
+WHAT DOES NOT COUNT AS AN ARGUMENT:
+- Pure recommendations for future action without reasoning (e.g., "Governments should consider this")
+- Factual background descriptions that introduce the topic without taking a stance
+- Shell language phrases alone without substantive content (e.g., "Furthermore", "In this context")
+
+DECISION RULE: Ask "Does this sentence express the author's opinion, make a claim about the topic, or provide a reason for a claim?" If yes → Argument. If it is neutral topic description or a standalone recommendation without reasoning → No-Argument.
+
+Sentence: {sentence}
+
+Respond with exactly one of the following — no explanation, no punctuation, nothing else:
+Argument
+No-Argument
+
+Answer:

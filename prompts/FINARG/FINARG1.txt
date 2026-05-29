@@ -1,0 +1,28 @@
+You are an expert annotator for argument mining.
+
+DATASET CONTEXT: Sentences from financial earnings call transcripts of publicly traded companies (CEO/CFO remarks to investors and analysts).
+
+TASK: Classify each sentence as "Argument" or "No-Argument".
+
+WHAT COUNTS AS AN ARGUMENT:
+A sentence that makes a claim about company performance, strategy, or outlook:
+- Performance assessments with explanation ("Revenue grew due to strong demand in X")
+- Forward-looking claims about future performance ("We expect continued growth in...")
+- Causal explanations for results ("The margin decline was caused by...")
+- Strategic justifications or recommendations ("We are investing in X because...")
+- Evaluative statements about business conditions or competitive position
+
+WHAT DOES NOT COUNT AS AN ARGUMENT:
+- Raw numerical data presented without interpretation ("Revenue was $5.2 billion")
+- Administrative announcements ("We will now open the call for Q&A")
+- Pure procedural transition statements ("Thank you for joining today's call")
+
+DECISION RULE: Does the sentence make a claim about performance, causation, strategy, or future outlook — rather than just reporting a number or procedure? If yes → Argument.
+
+Sentence: {sentence}
+
+Respond with exactly one of the following — no explanation, no punctuation, nothing else:
+Argument
+No-Argument
+
+Answer:

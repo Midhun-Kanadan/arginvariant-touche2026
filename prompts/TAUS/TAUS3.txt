@@ -1,0 +1,51 @@
+You are an expert annotator for argument mining in tweets (Twitter/X). The annotation framework is based on Haddadan, Cabrio & Villata (2018), a political debates argument annotation guideline.
+
+ANNOTATION GUIDELINE:
+A tweet is an ARGUMENT if it contains at least one of:
+
+(A) CLAIM — a contestable assertion the tweeter puts forward:
+  - Policy stance or advocacy: "I am in favor of X", "We should do X", "I am opposed to X"
+  - Personal judgment or opinion: "I believe X", "I think X", "In my judgment X", "I do not believe X"
+  - Evaluative assertion about a person, policy, or event: "X is a disgrace", "X was a disaster", "X did the right thing", "X is the worst"
+  - Positional answer to a debate question: first-person stance in response to a posed issue
+  - Bare contestable claim without any marker — if the statement is not certainly true or false and requires justification, it is a claim
+  - Implicit claim: a claim may be implied through context without explicit statement
+  - Questions can contain implicit claims: a question that implies a contestable position counts as a claim
+  - CRITICAL: a claim does NOT need a supporting premise to count as an argument
+
+CLAIM indicators (not guarantors — context always decides):
+  Opinion: "I believe", "I think", "I do not believe", "In my judgment", "I am in favor of", "I object to"
+  Forward: "so", "therefore", "hence", "thus", "for this reason"
+  Contrastive: "however" (when introducing a stance)
+
+(B) PREMISE — a reason or justification for a claim:
+  - Facts, statistics, or numerical evidence cited to support a claim
+  - Expert opinion or authority citation: "every analysis says that...", "according to..."
+  - Personal experience used as evidence: "My state ranks first in...", "I have worked to..."
+  - Example given to justify a claim: "for example, X has decreased"
+  - Historical fact or quotation used as ground for a claim
+
+PREMISE indicators: "because", "since", "for example"
+
+NOT-ARGUMENT: a tweet that contains NONE of the above:
+  - Neutral factual relay with no contestable assertion
+  - Pure insult with no reasoned proposition (insults are NOT claims)
+  - Tweet requiring a missing parent tweet to be interpretable
+  - Tweet written in a language other than English
+  - Shell language only: announces reasoning without stating it
+
+CRITICAL RULES:
+1. Unsupported claims ARE arguments — no premise needed.
+2. Implicit claims count — context inference is valid.
+3. Questions can contain implicit claims.
+4. Insults are NOT claims.
+5. If the tweet requires a missing parent tweet for interpretation, classify as NOT-ARGUMENT.
+6. Multi-sentence tweet: one claim anywhere = ARGUMENT.
+
+Sentence: {sentence}
+
+Respond with exactly one of the following — no explanation, no punctuation, nothing else:
+Argument
+No-Argument
+
+Answer:

@@ -1,0 +1,138 @@
+You are an expert annotator for claim detection in Wikipedia articles on debating topics such as vaccination policy, capital punishment, renewable energy, multiculturalism, and others. Each sentence is evaluated against a specific debating topic.
+
+ANNOTATION GUIDELINE:
+A sentence is an ARGUMENT if and only if it is a CONTEXT-DEPENDENT CLAIM (CDC): a general and concise statement that DIRECTLY SUPPORTS OR CONTESTS the given debating topic.
+
+ALL FOUR criteria must hold simultaneously. If any one fails, label NOT-ARGUMENT.
+
+(1) STANCE — The sentence expresses a clear position FOR or AGAINST the topic. It cannot be neutral, purely descriptive, or merely explanatory.
+  - Explicit stance: "X is harmful", "X should be allowed", "X benefits society"
+  - Consequence-as-stance: a sentence that directly describes a clear positive or negative outcome caused by the debate topic COUNTS as stance, even without modal verbs (should/must/ought) — BUT only for general causal claims, NOT for specific statistics or measurements:
+    ✓ "Vaccines reduce the spread of infectious diseases." → general causal benefit = ARGUMENT
+    ✓ "Boxing causes long-term brain damage." → direct harm claim = ARGUMENT
+    ✗ "At least 83 other countries are using wind power." → specific count, no stance
+    ✗ "Temperatures warmed 1.53°F between 1880 and 2012." → specific measurement, not a stance
+  - Short direct claims: very short sentences (under 12 words) that state a property, cost, benefit, or limitation directly relevant to the debate are ARGUMENT if they would function as a debate bullet point:
+    ✓ "Museums have high fixed costs." → premise in museum admission fees debate = ARGUMENT
+    ✓ "AI's main limitation is that it learns from given data." → limitation claim in AI debate = ARGUMENT
+
+(2) GENERALITY — The sentence makes a broadly applicable general point, not tied to a single specific event, date, or named individual case.
+  - "Vaccines reduce the spread of infectious diseases" → general ✓
+  - "In 2017, Gartner predicted 900,000 jobs could be lost" → specific dated forecast ✗
+  - Citation markers [ref] or (Author, year) do NOT make a claim specific — they are source labels. Judge the content.
+
+(3) DIRECTNESS — The sentence directly supports or contests the core debate question. It does not merely describe a sub-mechanism, provide adjacent context, or make a meta-point about how the debate should be conducted.
+  - Direct: "Exercise reduces cardiovascular disease risk" (for an exercise/health debate) ✓
+  - NOT direct: "Any conversation about abortion needs to include education about contraception" — this is about the debate's framing, not a FOR/AGAINST stance on abortion ✗
+  - For concessive structures ("While X, Y"): assess the MAIN CLAUSE Y only. The concessive clause provides contrast but does not cancel the main clause's stance.
+    ✓ "While some studies predict harm to tourism, wind farms have become tourist attractions in other countries." → main clause = positive claim for wind farms = ARGUMENT
+
+(4) CONCISENESS — The sentence is focused on a single debatable point and can function as a standalone debate bullet point.
+  - Pronoun test: if a pronoun (they, it, this, that, their, these) has a referent that is completely ambiguous across domains, the sentence is not self-contained → NOT-ARGUMENT.
+  - EXCEPTION: if the pronoun's referent is clearly inferrable from the topical domain, the sentence may still qualify:
+    ✓ "This is because smoking not only incurs direct medical costs, but also productivity losses." → "this" clearly refers to the economic harm of smoking = borderline ARGUMENT
+    ✗ "In fact, they only give you more problems in the end." → "they" and "problems" completely undefined = NOT-ARGUMENT
+
+---
+
+## ATTRIBUTION RULE — the most important rule in IAM
+
+Reporting-verb attribution signals that the sentence DESCRIBES what someone asserts rather than asserting it directly. This matters for CDC classification.
+
+**Apply the strip test:** Remove the attribution phrase. Does what remains function as a standalone CDC? If YES → ARGUMENT. If NO (the remainder is still about what someone believes, or is a hedged conjecture) → NOT-ARGUMENT.
+
+**NOT-ARGUMENT (attribution is the main predicate — sentence reports stance, not asserts it):**
+  ✗ "According to him, officials generally agree that sex education is necessary." → strip → "Officials agree sex ed is necessary" → still describing a consensus, not asserting a stance
+  ✗ "The Center for Ecoliteracy claimed that patenting seeds gives companies excessive power." → "claimed that" = reporting; sentence does not assert this
+  ✗ "Studies suggest that X might possibly occur." → hedged conjecture, not a CDC
+  ✗ "He says elephant farming will likely kick them into extinction." → attributed opinion
+
+**ARGUMENT (attribution is just a source tag — the content is the CDC):**
+  ✓ "'The reduction in heart attacks associated with public smoking bans is a big deal,' said Steven Schroeder, M.D." → strip "said Schroeder" → "Smoking bans significantly reduce heart attacks" = direct CDC = ARGUMENT
+  ✓ "According to the AHA, exercise reduces the risk of cardiovascular diseases [ref]." → strip → "Exercise reduces cardiovascular disease risk" = general CDC = ARGUMENT
+  ✓ "The WHO states, 'Vaccines are very safe.'" → strip → "Vaccines are very safe" = direct CDC = ARGUMENT
+  ✓ "Psychological studies have found that speaking two or more languages is beneficial for cognitive function." → strip "Psychological studies have found" → "Bilingualism is beneficial for cognitive function" = general CDC = ARGUMENT
+  ✓ "Studies found no associations between smoking bans and heart attack rates." → strip → "Smoking bans do not reduce heart attack rates" = direct CDC contesting the main pro-ban argument = ARGUMENT
+
+**KEY PRINCIPLE:** Institutional attribution ("According to WHO", "scientists found", "studies show", "he said") does NOT automatically make a sentence NOT-ARGUMENT. Apply the strip test every time.
+
+---
+
+## RESEARCH FINDINGS RULE
+
+A research finding IS an ARGUMENT if it directly tests the main proposition of the debate (not a secondary mechanism):
+  ✓ "A 2010 study found no associations between smoking bans and short-term heart attack rates." → directly tests the main argument FOR smoking bans = ARGUMENT
+  ✓ "Studies found same-sex and opposite-sex couples to be equivalent in relationship satisfaction." → directly supports the case for same-sex relationship recognition = ARGUMENT
+  ✗ "A 2010 study in rural counties found weaker effects." → too specific, sub-claim = NOT-ARGUMENT
+  ✗ "Studies found that heavy drinkers who quit show withdrawal symptoms." → secondary mechanism, not the main proposition = NOT-ARGUMENT
+
+  Test: If you remove "A study found that" / "Studies show that" and what remains is a general CDC on the debate's core question → ARGUMENT.
+
+---
+
+## NOT-ARGUMENT patterns
+
+**(1) Statistical counts and specific measurements** — specific numbers, percentages, dated statistics. These are evidence for claims made elsewhere, not CDCs themselves.
+  ✗ "At least 83 other countries are using wind power." → specific count
+  ✗ "Temperatures warmed 1.53°F between 1880 and 2012." → specific measurement
+  ✗ "Over 81% of people surveyed thought the Games had a positive effect." → survey result, descriptive
+
+**(2) Causal mechanism explanations** — explains HOW or WHY something happens without asserting a normative stance.
+  ✗ "The low operating costs of robots make them competitive." → mechanism, no stance on automation
+  ✗ "Stigma associated with voluntary programmes can substantially affect uptake." → explains a dynamic, no normative claim
+
+**(3) Historical facts and specific-instance events** — describes a particular past event, court ruling, or single named case.
+  ✗ "In its 2011 Brown decision, the Supreme Court struck down a California law." → specific legal event
+  ✗ "In Ancient Greece boxing was a well developed sport." → historical description
+
+**(4) Abstract universal values not tied to a specific debate** — normative platitudes about general human values are NOT direct CDCs.
+  ✗ "What the world should be seeking are not concepts of uniformity but human values: compassion, love, and understanding." → abstract values statement, not a claim in any specific debate
+  ✗ "Obviously, we should always act in the best interests of future generations." → universal principle
+
+**(5) Counterfactual consequence statements** — describes what WOULD HAPPEN IF a policy were enacted, rather than arguing FOR or AGAINST it.
+  ✗ "Doctors in training would have to practice on something besides animals." → conditional consequence, not a stance
+
+**(6) Topicality alone is not sufficient** — any sentence ABOUT a debate subject that does not take a directional stance is NOT-ARGUMENT. Rhetorical questions, background descriptions, legal/policy fact reports, and survey descriptions are NOT-ARGUMENT.
+  ✗ "The death penalty is mandatory for murder in China." → legal fact, no stance
+  ✗ "Renewable energy is just that — renewable." → definitional
+  ✗ "How much well-being justifies the death of hundreds of giraffes?" → rhetorical question, no propositional stance
+
+**(7) Unresolved pronouns** — sentence with completely ambiguous pronoun referent (no domain inference possible).
+  ✗ "In fact, they only give you more problems in the end." → "they" undefined
+
+---
+
+## Contrastive pairs
+
+| NOT-ARGUMENT | ARGUMENT |
+|---|---|
+| "According to him, officials agree that sex ed is necessary." | "'Smoking bans significantly reduce heart attacks,' said Steven Schroeder, M.D." |
+| "Studies suggest that X might possibly occur." | "Psychological studies have found that bilingualism is beneficial for cognitive function." |
+| "The Supreme Court struck down a California law." | "A 2010 study found no associations between smoking bans and heart attack rates." |
+| "At least 83 countries are using wind power." | "Vaccines reduce the spread of infectious diseases." |
+| "Doctors in training would have to practice on something besides animals." | "Museums have high fixed costs." |
+| "The low operating costs of robots make them competitive." | "AI's main limitation is that it learns from given data." |
+| "What the world should seek are human values: compassion and understanding." | "Herd immunity from high vaccination rates has greatly reduced endemic disease transmission." |
+| "Renewable energy is just that — renewable." | "While some studies predict tourism harm, wind farms have become tourist attractions in other countries." |
+
+---
+
+## Critical rules
+
+1. **ALL FOUR CDC criteria must hold.** A single failed criterion disqualifies.
+2. **Apply the strip test for attribution.** Remove the attribution phrase; if what remains is a standalone CDC → ARGUMENT.
+3. **"Studies found / scientists say / according to X" do NOT automatically disqualify a CDC.** Strip and judge the content.
+4. **Research findings that directly test the main debate proposition are ARGUMENTS**, even when phrased as study results.
+5. **Consequence-as-stance applies to general causal claims only** — not to specific statistics, counts, or measurements.
+6. **Short direct property claims are ARGUMENTS** if they function as debate premises.
+7. **Topicality alone is never sufficient.** Being about a debate subject without taking a FOR/AGAINST position = NOT-ARGUMENT.
+8. **The majority of Wikipedia sentences are NOT-ARGUMENT.** Default to NOT-ARGUMENT when genuinely uncertain.
+
+Topic: {topic}
+Sentence: {sentence}
+
+Respond with exactly one of the following — no explanation, no punctuation, nothing else:
+Argument
+No-Argument
+
+Answer:

@@ -1,0 +1,48 @@
+You are an expert annotator for argument mining in tweets (Twitter/X). The annotation unit is the full tweet text.
+
+ANNOTATION GUIDELINE (Cambridge Dictionary-based framework):
+An ARGUMENT is any tweet that contains an INFERENCE — a guess, judgment, or opinion the author forms and expresses. The central question is: does the author take a position, make an evaluative judgment, or assert an opinion?
+
+ARGUMENT subtypes:
+(A) STATEMENT — inference only, no supporting information in the tweet:
+  - Author asserts a direct stance or evaluative opinion
+  - Rhetorical question implying a position ("Why should X get to...?")
+  - Exception construction leading to a positional conclusion ("Not everyone X, but everyone Y... therefore Z")
+  - Evaluative adjective/adverb applied to a subject or event: "draconian", "unfair", "better", "wrong", "fairer"
+  - Stance-bearing hashtag encodes inference even if main text is bare: #AbortionIsHealthcare, #thick, #NeverAgain
+  - Discourse marker drawing a positional conclusion: "therefore", "hence", "so" used to conclude, not just to sequence
+
+(B) REASON — inference anchored in information cited in the tweet:
+  - Direct quote or headline from another source + evaluative stance
+  - Source URL explicitly cited as grounding for an opinion stated in the same tweet
+  - Concrete date or statistic cited AS SUPPORT for a judgment
+  - Stated personal experience used as basis for a position
+  - The inference must be present AND must build from the information
+
+NOT-ARGUMENT subtypes:
+(C) NOTIFICATION — information only, no inference:
+  - News article headline/summary + URL, zero evaluative language
+  - Media channel promotion of their own content
+  - Factual relay of an event, ruling, or decision without any positional gloss or evaluative framing
+  - URL-only tweets or pure factual descriptions
+
+(D) NONE — neither inference nor information:
+  - Spam, filler, bot content
+  - Insults with no reasoned position (insults are NOT inference)
+  - Content with no discernible semantic meaning
+
+CRITICAL RULES:
+1. The presence of INFERENCE (opinion/judgment/position) = ARGUMENT.
+2. Information (facts) alone = NOT-ARGUMENT.
+3. Insults are not inference — do not classify hostility as argument.
+4. Hashtags CAN carry inference if they encode a stance.
+5. A URL alone does not make a tweet REASON; inference must also be present in the text.
+6. In case of genuine doubt, default to NOT-ARGUMENT.
+
+Sentence: {sentence}
+
+Respond with exactly one of the following — no explanation, no punctuation, nothing else:
+Argument
+No-Argument
+
+Answer:

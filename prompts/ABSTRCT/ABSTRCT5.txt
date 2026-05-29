@@ -1,0 +1,65 @@
+You are an expert annotator for argument mining in Randomized Controlled Trial (RCT) abstracts from biomedical literature (PubMed/MEDLINE). Diseases covered include neoplasm, glaucoma, hepatitis, diabetes, and hypertension.
+
+ANNOTATION GUIDELINE:
+A sentence is an ARGUMENT if it CONCLUDES or EVALUATES. A sentence is NOT AN ARGUMENT if it REPORTS or DESCRIBES.
+
+(A) CLAIM — a sentence that evaluates or concludes:
+  - Asserts a treatment property using a stative construction: "was well tolerated", "is effective", "is not inferior to", "is feasible", "was favorable"
+  - Concludes that a treatment has NO meaningful effect: "had no effect on X", "did not produce a statistically significant advantage", "does not prolong survival", "resulted in no improvement", "no correlation was found", "could not be identified"
+  - Asserts a general disease property or established association: "Fatigue has a significant impact on QOL", "X is associated with poor prognosis"
+  - Asserts the state of the field: "the role of X remains controversial", "evidence is conflicting", "remains unclear", "has emerged as the standard"
+  - Makes a recommendation or calls for further work: "Further studies are needed", "should be considered", "is necessary to confirm", "warrant another trial"
+  - Signals a conclusion: "These results suggest...", "According to these results...", "This confirms that..."
+
+(B) EVIDENCE — a specific finding from the current study presented as a concise key result:
+  - Compares two study arms with brief quantified values: "Group A had X vs. Group B had Y"
+  - The primary purpose of the sentence is to establish the main result, not to enumerate detailed statistics
+
+THE KEY DISTINCTION — Reporting vs. Concluding:
+
+NOT-ARGUMENT (Reporting): A sentence that describes what was OBSERVED or MEASURED using a dynamic action verb, even if "significantly" is present. Pattern:
+  "[Subject] [significantly] [improved / reduced / decreased / increased / achieved / demonstrated / experienced / showed / was higher / was lower / was more frequent] [measured outcome] [in Group A] [compared to Group B / versus Group B] [(P=...) (HR=...) (CI=...)]"
+  The word "significantly" here means "statistically significant" — it describes the data, it does not make an evaluative conclusion.
+  → "Letrozole significantly improved distant DFS (HR=0.60; P=0.002)" → NOT-ARGUMENT
+  → "Fat mass had significantly decreased by month 12 in the exemestane group (P<0.01)" → NOT-ARGUMENT
+  → "PFS was significantly longer for fulvestrant 500 mg than 250 mg (HR=0.80; P=.006)" → NOT-ARGUMENT
+
+ARGUMENT (Concluding): A sentence that states a GENERAL EVALUATION or a NULL CONCLUSION without enumerating the raw statistics:
+  → "Letrozole was more effective than placebo for DFS" → ARGUMENT (evaluative conclusion)
+  → "Treatment X had no effect on the primary outcome" → ARGUMENT (null conclusion = claim that it failed)
+  → "No correlation between lung expansion and clinical outcome was found" → ARGUMENT (null conclusion)
+  → "The treatment was well tolerated" → ARGUMENT (evaluative)
+
+ADDITIONAL NOT-ARGUMENT cases:
+  - States the study objective: "To compare X with Y", "To assess X", "To determine X"
+  - Describes study design or methodology (randomization, blinding, treatment schedule)
+  - Reports patient enrollment or baseline demographics
+  - Provides a definition: "Success was defined as..."
+  - Cites the findings of a specific named previous trial: "In the [named] trial, X was shown to improve Y"
+  - Null results stated with raw P-values only: "No significant difference was observed (P=.49)", "P=0.5"
+
+BORDERLINE CASES:
+→ Argument: "Synbiotic supplementation had no effect on FPG and insulin resistance." — null conclusion (no P-value, states the conclusion)
+→ Argument: "No correlation between immediate lung expansion and clinical outcome was found." — null conclusion
+→ Argument: "A blinded RCT is feasible." — feasibility conclusion
+→ Argument: "The role of adjuvant chemotherapy in this population is controversial." — field-state claim
+→ Argument: "Neither FU24h + LV nor FU24h prolong survival relative to bolus FU + LV." — general null conclusion
+→ Not-Argument: "Letrozole significantly improved distant DFS (HR=0.60; 95% CI 0.43, 0.84; P=0.002)" — result reporting with dynamic verb + statistics
+→ Not-Argument: "Mortality risk was significantly lower in the surveillance group (aHR=0.69; 95% CI, 0.57-0.83)" — result reporting
+→ Not-Argument: "No significant difference was observed in scores at months 9 and 12 (P=.24, P=.93)" — null result with raw P-values
+
+CRITICAL RULES:
+1. Dynamic verb + statistics ("significantly improved/reduced/decreased/increased X") = REPORTING = NOT-ARGUMENT.
+2. Null conclusions without raw P-values ("had no effect", "no correlation found", "did not improve") = CONCLUDING = ARGUMENT.
+3. Stative evaluative constructions ("is effective", "is feasible", "is controversial", "was well tolerated") = ARGUMENT.
+4. Null results with explicit P-values only = NOT-ARGUMENT (raw statistical data).
+5. Recommendations ("further studies needed", "should be considered") = ARGUMENT.
+6. "Significantly" describes statistical magnitude — it does NOT make a result into a conclusion.
+
+Sentence: {sentence}
+
+Respond with exactly one of the following — no explanation, no punctuation, nothing else:
+Argument
+No-Argument
+
+Answer:

@@ -1,0 +1,27 @@
+You are an expert annotator for argument mining.
+
+DATASET CONTEXT: Sentences from scientific and biomedical research articles spanning multiple scientific disciplines (similar to medical abstracts but broader in scope).
+
+TASK: Classify each sentence as "Argument" or "No-Argument".
+
+WHAT COUNTS AS AN ARGUMENT:
+A sentence that makes a scientific claim, hypothesis, or provides evidence supporting or refuting a claim:
+- Research findings and conclusions ("Our results show that X reduces Y by Z%")
+- Hypotheses or proposals about mechanisms, relationships, or effects
+- Evidence statements citing data or observations to support a claim
+- Comparative claims about methods, treatments, or approaches
+
+WHAT DOES NOT COUNT AS AN ARGUMENT:
+- Pure methodological descriptions without a claim ("We used a randomized design")
+- Background introductions stating universally established, unchallengeable facts
+- Procedural statements about study structure or data collection steps
+
+DECISION RULE: Does the sentence make a scientific claim that needs justification, or provide data/evidence in support of such a claim? If yes → Argument.
+
+Sentence: {sentence}
+
+Respond with exactly one of the following — no explanation, no punctuation, nothing else:
+Argument
+No-Argument
+
+Answer:

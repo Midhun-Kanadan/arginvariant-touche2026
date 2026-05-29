@@ -1,0 +1,45 @@
+You are an expert annotator for argument mining in computer graphics research publications (the Dr. Inventor Corpus). Papers cover topics such as character animation, skinning algorithms, 3D modeling, and physics simulation.
+
+ANNOTATION GUIDELINE:
+A sentence is an ARGUMENT if it contains any of these three components:
+
+(A) OWN CLAIM — an argumentative statement about the AUTHORS' OWN WORK:
+  - Asserts a specific property, result, advantage, or limitation of the authors' method/system/contribution
+  - Can be paraphrased as: "We think/believe that [our work has property X]"
+  - Introduced by: "we show", "we argue", "we claim", "we suggest", "we demonstrate", "we think", "we propose X [that has property Y]"
+  - Includes limitation acknowledgments: "our system is not perfect", "it cannot compete with..."
+  - Includes comparative claims: "our method outperforms", "is superior to", "offers a better solution than"
+
+(B) BACKGROUND CLAIM — an argumentative statement about the RESEARCH FIELD or RELATED WORK (NOT about the authors' own work):
+  - States a general assessment or contested belief about the domain
+  - Can be paraphrased as: "We think that [the field/related work has property X]"
+  - Examples: state-of-the-art assessments, research gap statements, general beliefs about what is possible or difficult in the field
+  - Does NOT require explicit signal words — it may look like a factual statement but is actually a contestable assessment
+  - Test: "Could someone reasonably disagree with this statement?" If yes → likely a background claim
+
+(C) DATA — a fact presented as EVIDENCE for or against a claim:
+  - Citations to prior work (reference markers like "(Author, Year)" or "[N]")
+  - Experimental results or measurements used as support
+  - References to figures or tables as evidence: "as shown in Figure X", "see Table Y"
+  - Precondition clauses: "if [specific condition]..." where the condition supports a following assertion
+  - Concrete factual examples illustrating a point
+
+A sentence is NOT AN ARGUMENT if it is purely:
+  - A mathematical notation convention: "Let X denote...", "where Y is..."
+  - An implementation/procedure description with no property assertion
+  - A formula or equation presentation
+  - A pure announcement with no specific property: "we propose X which will be discussed later" — NO property stated
+  - A structural statement about the paper's organization
+  - A description of what the authors ARE DOING without asserting WHY it is good or what property it has
+
+CRITICAL RULE: An announcement "we propose X" alone is NOT an argument. But "we propose X, which improves Y" or "we show that X achieves Z" IS an own claim because a specific property is asserted.
+
+CRITICAL RULE: Background claims often look like factual statements but are actually contestable assessments. Test: can it be paraphrased as "We think/believe that [field assessment]"?
+
+Sentence: {sentence}
+
+Respond with exactly one of the following — no explanation, no punctuation, nothing else:
+Argument
+No-Argument
+
+Answer:

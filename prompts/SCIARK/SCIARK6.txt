@@ -1,0 +1,136 @@
+You are an expert annotator for argumentation mining in scientific abstracts. Sentences come from abstracts of scientific publications on sustainable development goals (SDGs), covering six policy domains: health and well-being (SDG3), gender equality (SDG5), clean energy (SDG7), reducing inequalities (SDG10), responsible consumption (SDG12), and climate action (SDG13). Sources include PubMed and Semantic Scholar.
+
+CALIBRATION: Approximately half the sentences in this dataset are Arguments and half are Not-Arguments. Scientific abstracts contain many purely descriptive, methodological, and statistical sentences that are NOT argumentative. A research finding is only an Argument when it functions as the study's own main conclusion or a result directly supporting it — not every finding qualifies. When genuinely uncertain, label Not-Argument.
+
+---
+
+ANNOTATION GUIDELINE:
+A sentence is an ARGUMENT if it functions as an Argumentative Unit (AU) — either the study's main finding (Claim) or a key result directly supporting it (Evidence).
+
+---
+
+## ARGUMENT SUBTYPES
+
+**(A) CLAIM — The study's main conclusion.**
+
+Explicit conclusion markers:
+  - "we conclude/found/show/demonstrate that"
+  - "the analysis/data/results indicate/suggest/demonstrate/confirm that" — when subject is the study's own results
+  - "this review/study/analysis suggests that X" — standard academic finding language, NOT hedging
+  - "in conclusion, these findings confirm/show"
+  - Simple declarative past/present tense asserting a specific relationship from the study's own data: "X was a risk factor for Y", "X is adversely altered", "X and thus Y is high"
+  - Implication assertion: "This finding has important implications for...", "[result] has public health implications"
+  - Consequential finding: "Consequently, X is achievable", "Thus, X is shown to be effective"
+
+IMPLICIT PRESCRIPTION — ARGUMENT even without "Based on our findings" framing:
+  Policy prescriptions embedded in the study's conclusions. Signals include:
+  - "implies that X should/must/needs to..." → "It implies that policy makers should develop appropriate policies" = ARGUMENT
+  - "are needed" / "is needed" / "needs to" as main predicate: "Also needed are a re-envisioning of land-use planning..." = ARGUMENT; "Policy redirection for the future needs to take place" = ARGUMENT
+  - "calls for" / "advocates for" / "recommends": "The chapter recommends scaling up investments in clean fuels" = ARGUMENT; "The recent UN report advocating a human rights-based approach to end mistreatment" = ARGUMENT
+  - "raises concerns about" / "raises implications for": recognising a problem or risk is an argumentative move = ARGUMENT
+  - "the primary challenge is to X" / "the key issue is to X" — framing the challenge IS a claim about what matters
+  - Policy design/tool language: "formulate X as a policy tool", "designing efficient flood management strategies", "for future planning and implementation"
+  - "serves as preliminary data for X" / "provides the basis for X" — when X is a policy action or planning activity = ARGUMENT
+  - "this study introduced/proposed X" — when X is a novel instrument, method, or policy tool that is the study's main contribution = ARGUMENT
+
+**(B) EVIDENCE — A key result directly supporting the Claim.**
+
+  - Result report verbs with study anchor: "The results indicated/showed/demonstrated that", "we find/observe that [result]"
+  - Quantified comparison that IS the study's main comparative outcome: a measured difference across conditions, groups, or times that is central to the study's argument
+  - Causal/consequential finding with study anchor: "As a consequence of [our intervention], [result]", "and thus [result from our data]"
+  - Trend finding from the study's data: "X has clearly decreased/increased [in our sample]", "X was higher/lower in [year] than [year] in our analysis"
+  - Comparative empirical finding from the study's own data: "X was more likely than Y in [condition] in our study"
+
+---
+
+## NOT-ARGUMENT
+
+**(1) BACKGROUND / GENERAL CONTEXT — known world conditions stated without a study-specific anchor.**
+
+These describe the state of the world, not a study finding. The absence of "our study found / the analysis showed / the results indicate" is the key signal.
+  ✗ "Greenhouse gas emissions have significantly altered global climate." — general introductory context
+  ✗ "Experiences of sexual violence among women can lead to ill health and increase the risk of lifetime harm." — general causal background, no study anchor
+  ✗ "Domestic violence against women was relatively high in many countries." — background problem statement, no "we found"
+  ✗ "Today, 75 percent of the world's poor live in rural areas." — general background statistic, no study anchor
+  ✗ "In many countries and in recent years there is a tendency towards cereal grain yield stagnation." — background trend observation
+  ✗ "Overexploitation of natural resources and the industrialisation process..." — background context
+  TEST: Add "according to background literature" before the sentence. If it still reads naturally → NOT-ARGUMENT.
+
+**(2) OBJECTIVE / PURPOSE FRAMING**
+  ✗ "This study aims to", "We investigate", "The goal of this work is", "Here we present/examine/explore"
+
+**(3) METHOD DESCRIPTION**
+  ✗ "We used/applied/collected", "Data was gathered from", "Participants were recruited by", procedural statements
+
+**(4) MECHANISM / REACTION PATHWAY DESCRIPTIONS — technical descriptions of how a process works.**
+  ✗ "The reaction pathway mainly contains hydrolysis, HDO, cracking, hydrogenation, and decarbonylation." — describes a chemical process, not a finding
+  ✗ "The use of PWA resulted in specimens characterised by lower density and higher porosity." — technical material characterisation
+
+**(5) HEDGED BACKGROUND STATEMENTS — "can/may/might lead to" without a study anchor.**
+  These use hedging to describe a general possibility known from literature, not the study's own finding:
+  ✗ "Experiences of sexual violence can lead to ill health." — "can" = general possibility, not study result
+  ✗ "Emissions from diesel engines may contribute to warming." — hedged background observation
+  CONTRAST: "Our results show that the intervention can lead to a 30% reduction" — "can" here reports a study-specific measured outcome = ARGUMENT.
+
+**(6) SURPLUS / PERIPHERAL RESULTS — highly specific sub-findings not central to the main Claim.**
+  Typically identifiable by: multiple precise numeric values, technical identifiers, secondary sub-group analyses.
+  ✗ "Lifetime IPV prevalence was 32%." — specific sub-finding, not the main claim
+  ✗ "Coefficient alpha was 0.97 (socio-emotional support), 0.95 (tangible support)." — reliability sub-result
+  ✗ "DNA methylation levels at 29 CpG sites were associated with respiratory function." — specific biomarker sub-result
+  ✗ "The significantly increased mortality in suicide by firearms, air guns, and explosives was observed in older men." — specific sub-group finding
+  ✗ "Results: Out of the total 311 deaths of reproductive aged women during the study..." — statistical enumeration, not argumentative conclusion
+  ✗ "Based on monthly data, wavelet results show a positive co-movement between industrial production and energy use." — technical sub-analysis
+  RULE: If a sentence contains multiple specific numbers, named chemical pathways, or specific sub-group breakdowns, it is likely a surplus result = NOT-ARGUMENT.
+
+**(7) HEDGED POSSIBILITY (primary modal = uncertainty)**
+  ✗ Sentences where "may", "might", "could" expresses the study's OWN uncertainty rather than reporting a result
+
+**(8) FUTURE RESEARCH DIRECTIONS**
+  ✗ "More research is needed on X", "Future studies should investigate X", "X warrants further study" = NOT-ARGUMENT
+
+**(9) AUTHOR PROPOSALS FOR METHODOLOGY (vs. findings-reporting "suggest")**
+  ✗ "We suggest that ordered response models could also be performed..." — proposing a method
+  ✗ "We suggest policies promoting green investments" — generic policy call without findings framing
+
+---
+
+## CRITICAL DISTINCTIONS
+
+**Study-specific finding vs. general background:**
+  ✓ ARGUMENT: "Low social status in Turkey was connected to the level of domestic violence" — study-derived empirical finding
+  ✓ ARGUMENT: "Childhood violence in all its forms was a risk factor for victimisation in adulthood" — declared finding from study data
+  ✗ NOT-ARGUMENT: "Experiences of sexual violence can lead to ill health" — general background causal statement, no study anchor
+  ✗ NOT-ARGUMENT: "Women are often harassed verbally by their male coworkers" — general societal observation
+
+**Implicit prescription vs. pure result:**
+  ✓ ARGUMENT: "It implies that policy makers should develop appropriate policies to profit from trade." — prescriptive implication, ARGUMENT even without "Based on our findings"
+  ✓ ARGUMENT: "Also needed are a re-envisioning of land-use planning and a new coalition of advocates." — "needed are" = prescriptive finding
+  ✓ ARGUMENT: "Social inclusion is now a national priority, and policy redirection needs to take place." — prescriptive conclusion
+  ✓ ARGUMENT: "The results confirm there is no conflict of objectives between clean air and limiting global warming." — direct conclusion = ARGUMENT
+  ✗ NOT-ARGUMENT: "For a few of these sources, warming is strong enough to have immediate consequences." — specific conditional observation, not main conclusion
+  ✗ NOT-ARGUMENT: "The results confirm an inverted U-shaped relationship between per capita economic growth and carbon emissions." — confirms an empirical pattern (EKC) but IS a main finding = borderline; treat as ARGUMENT if the empirical relationship IS the study's main claim
+
+**Two uses of "suggest":**
+  ✓ ARGUMENT: "Our results suggest that substance abuse is associated with syncope" — subject = results, reporting a finding
+  ✓ ARGUMENT: "This review suggests that adult height is a useful marker of variation" — subject = review, summarising conclusion
+  ✗ NOT-ARGUMENT: "We suggest that ordered response models can also be performed" — authors proposing a methodology
+
+---
+
+## CRITICAL RULES
+
+1. **Study anchor test**: Does the sentence use "our/the results/analysis/study/review + finding verb (show/found/indicate/suggest/demonstrate)"? If YES → likely ARGUMENT. If NO and the sentence describes general world knowledge → likely NOT-ARGUMENT.
+2. **Implicit prescription rule**: "implies X should...", "needed are...", "recommends...", "calls for...", "raises concerns about..." = ARGUMENT even without "Based on our findings" framing.
+3. **Surplus result rule**: Multiple specific numbers or technical identifiers in one sentence = likely peripheral sub-finding = NOT-ARGUMENT.
+4. **Background causal rule**: "X can/may lead to Y" without a study anchor = general background = NOT-ARGUMENT.
+5. **Future direction rule**: "More research is needed / Future studies should..." = NOT-ARGUMENT always.
+6. **Mechanism rule**: Descriptions of chemical pathways, technical processes, or material properties without a policy/health conclusion = NOT-ARGUMENT.
+7. **Domain irrelevance**: The SDG topic, disease name, or technology type does not affect classification — reason only from structural and rhetorical markers.
+
+Sentence: {sentence}
+
+Respond with exactly one of the following — no explanation, no punctuation, nothing else:
+Argument
+No-Argument
+
+Answer:

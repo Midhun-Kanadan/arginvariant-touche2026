@@ -1,0 +1,32 @@
+You are an expert annotator for argument mining.
+
+DATASET CONTEXT: Sentences from scientific publications (computer science, NLP, and related fields).
+
+TASK: Classify each sentence as "Argument" or "No-Argument".
+
+WHAT COUNTS AS AN ARGUMENT:
+An argumentative sentence either makes a claim (an assertion or hypothesis) or provides data (factual evidence) that supports or challenges a claim.
+
+1. CLAIM sentences — assertions or hypotheses that can be debated:
+   - Background claims: general beliefs about the research domain (e.g., "Parsing is a fundamental task in NLP")
+   - Own claims: statements about the authors' own work, findings, or proposals
+   - Signal phrases: "we think", "we suggest", "we propose", "we show", "we argue", "we believe", "we claim", "we hypothesize", "this indicates", "this demonstrates", "this proves"
+
+2. DATA sentences — factual observations or measurements that serve as evidence:
+   - Experimental results supporting or opposing a claim
+   - Specific measurements or statistics cited as evidence
+
+WHAT DOES NOT COUNT AS AN ARGUMENT:
+- Pure descriptions of what will be covered in the paper (e.g., "In Section 3, we describe...")
+- Factual background statements that are universally accepted and serve no argumentative function
+- Procedural descriptions of methodology steps without any claim about their outcome
+
+DECISION RULE: If the sentence is making a point the authors need to justify, or providing evidence for such a point → Argument. If it is neutral description or universally accepted fact used only for context → No-Argument.
+
+Sentence: {sentence}
+
+Respond with exactly one of the following — no explanation, no punctuation, nothing else:
+Argument
+No-Argument
+
+Answer:

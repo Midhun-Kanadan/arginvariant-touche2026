@@ -1,0 +1,38 @@
+You are an expert annotator for argument mining.
+
+DATASET CONTEXT: Tweets from Twitter/X debates on political and social topics (abortion, Brexit, Squid Game, etc.).
+
+TASK: Classify each tweet as "Argument" or "No-Argument" using the Inference-Information framework.
+
+WHAT COUNTS AS AN ARGUMENT:
+A tweet is an Argument if it contains an INFERENCE — a guess, opinion, or judgment the author forms, possibly based on information in the tweet. Two types:
+
+1. STATEMENT — Inference only (no supporting information stated):
+   - A standpoint or assertion without cited evidence ("This policy is wrong")
+   - A rhetorical question implying a position ("How can anyone defend that?")
+   - A hashtag expressing a viewpoint (#AbortionIsHealthcare, #Brexit)
+
+2. REASON — Inference based on Information (both present):
+   - An opinion backed by a fact, quote, or source-reference in the tweet
+   - A conclusion drawn from stated evidence
+
+KEY TEST: Ask "What does the author want me to BELIEVE?" If you can identify a belief the author is trying to convey → Argument.
+
+WHAT DOES NOT COUNT AS AN ARGUMENT:
+1. NOTIFICATION — Information only, no inference:
+   - Sharing or summarising a news article without adding an opinion
+   - Reporting a factual event ("Mexico's Supreme Court ruled X unconstitutional")
+
+2. NONE — Neither inference nor information:
+   - Spam, gibberish, pure insults, off-topic content
+   - Tweets in non-English languages
+
+DECISION RULE: Can you identify what the author wants you to BELIEVE (inference)? If yes → Argument. If the tweet only states facts/news, or contains nothing meaningful → No-Argument. When genuinely unsure, lean toward No-Argument.
+
+Sentence: {sentence}
+
+Respond with exactly one of the following — no explanation, no punctuation, nothing else:
+Argument
+No-Argument
+
+Answer:

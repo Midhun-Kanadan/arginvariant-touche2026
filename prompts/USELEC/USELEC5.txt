@@ -1,0 +1,98 @@
+You are an expert annotator for argument mining in US presidential and vice-presidential debate transcripts (1960–2016). The genre is oral spoken political debate — candidates argue positions on policy, domestic issues, and foreign policy. The text includes turns by candidates, moderators, and panelists.
+
+CORE PRINCIPLE: Most sentences in debate transcripts are NOT argumentative units. Narrative, contextual, procedural, and descriptive sentences are extremely common, even in candidate speech. Only classify as ARGUMENT when there is a clear, explicit argumentative signal. When in doubt, classify as No-Argument.
+
+ARGUMENT = a sentence making an active argumentative MOVE: the speaker stakes a position (CLAIM) or explicitly signals a reason in support of one (PREMISE).
+
+---
+
+WHAT COUNTS AS ARGUMENT:
+
+(A) CLAIM — The speaker is directly staking a debatable position, requiring an explicit signal:
+  - Opinion/stance indicators: "I believe", "I think", "In my opinion", "In my judgment", "I am in favor of", "I do not believe", "I favor", "I support", "I oppose"
+  - Explicit normative assertion about a specific issue: "X should/must/ought to [happen]" — the speaker is committing to what ought to be done
+  - Direct evaluative judgment with evaluative word: "That was a disaster", "The present tax structure is a disgrace", "We've been effective" — short direct verdict on a policy/person/event
+  - Conclusion markers: "so [assertive clause]", "therefore [assertion]", "thus [assertion]"
+  - Direct positional answer to a debate question: a candidate directly answering a yes/no or stance question
+
+(B) PREMISE — Only when the sentence explicitly signals its evidential role:
+  - Explicit causal/justification marker: "because [reason]", "since [reason]"
+  - Explicit example marker: "for example [case]", "for instance [case]"
+  - Personal credential explicitly used as justification: "I have worked as X for Y years", "I have been in government for Z years" — where the experience is directly invoked to establish credibility
+  - A specific statistic or fact IMMEDIATELY and DIRECTLY following a claim statement in the same argumentative unit — only when the link is explicit, not inferred
+
+---
+
+WHAT DOES NOT COUNT AS ARGUMENT:
+
+MODERATOR/PANELIST SPEECH: topic introductions, procedural management, question-posing.
+
+GENUINE QUESTIONS: sentences ending with "?" without an embedded definitive stance. Includes candidate questions.
+
+BARE STATISTICS — a number or percentage cited WITHOUT an explicit claim or justification marker:
+  → "Drug use doubled." = NOT-ARGUMENT (statistic without context)
+  → "It's growing at 1.3 percent." = NOT-ARGUMENT (bare figure)
+  → "Marijuana use is up 141 percent." = NOT-ARGUMENT (bare number)
+  A statistic only becomes a PREMISE when the sentence contains "because", "since", or "for example", or when it immediately follows and explicitly supports a stated claim with no other framing.
+
+HISTORICAL NARRATIVE — sentences recounting past events, telling a story, or citing history WITHOUT an explicit current-issue position:
+  → "In 1974, we had the worst recession since World War II." = NOT-ARGUMENT
+  → "Abraham Lincoln came to the presidency in 1860 after a little-known session in the House." = NOT-ARGUMENT
+  → "I have seen Communist influence and Castro influence rise in Latin America." = NOT-ARGUMENT (personal historical observation)
+  → "The Congress passed uh an enterprise zone after the Los Angeles riots five years ago." = NOT-ARGUMENT
+  Historical narrative is NOT-ARGUMENT even when spoken by a candidate. It becomes Argument only if it contains an explicit opinion/stance signal.
+
+EXAMPLE INTRODUCTIONS without the argument: "Let's look at Africa." or "Take, for example, the trade deficit." — introducing an example topic is NOT the argument itself.
+
+ATTRIBUTION OF OPPONENT'S RECORD — describing what an opponent or third party said, voted, or did WITHOUT adding the speaker's own explicit evaluative stance:
+  → "Senator Bentsen voted twice to delay cost-of-living adjustments." = NOT-ARGUMENT (reporting a voting record)
+  → "During their term, 4 million more Americans fell into poverty." = NOT-ARGUMENT (presenting a statistic attributed to opponent's term)
+  → "He wanted to take them into bankruptcy." = NOT-ARGUMENT (describing opponent's action)
+  Attribution becomes ARGUMENT only if the speaker explicitly signals their own judgment ("and that was wrong", "which is why I oppose him").
+
+POLICY DESCRIPTION — describing what a policy or plan does, rather than asserting it should be adopted:
+  → "Now there is technology that would allow infrared technology to be used to identify those cars that are providing the pollution in our atmosphere." = NOT-ARGUMENT (describing a process)
+  → "This is an idea that's been around a long time, which is letting people choose from different Medicare plans." = NOT-ARGUMENT (describing a proposal)
+  → "What we would like to do is look for ways to reduce the incidence of abortion." = NOT-ARGUMENT (aspirational description, not a committed stance)
+  → "We let families save in an IRA and withdraw tax free to pay for education." = NOT-ARGUMENT (policy description)
+
+TOPIC-FRAMING AND META-COMMENTARY — sentences about the debate, campaign, or conversation rather than about the substantive issues:
+  → "And he said our troops would be occupiers in a bitterly hostile land." = NOT-ARGUMENT
+  → "In the nature of a campaign, some campaigns focus on attacking a person." = NOT-ARGUMENT
+  → "This race is about values, it's about change." = NOT-ARGUMENT (framing the debate, not taking a stance)
+  → "That's the problem with it." = NOT-ARGUMENT (framing, not arguing)
+  → "Let's look at the president's record." = NOT-ARGUMENT (debate direction)
+
+ASPIRATIONAL FRAMING — expressing a desire or preference about the debate or process without a direct policy commitment:
+  → "I would love to see the next three weeks devoted to talking about the economy." = NOT-ARGUMENT
+  → "We've been discouraged too long." = NOT-ARGUMENT
+
+EMOTIONAL/PERFORMATIVE SPEECH — personal reactions, social expressions, narrative admissions:
+  → "I can sometimes take myself too seriously." = NOT-ARGUMENT
+  → "I could have rationalized it." = NOT-ARGUMENT
+  → "That, to me, was so hurtful." = NOT-ARGUMENT
+
+VAGUE EVALUATIVE FRAMING — a sentence that sounds important but doesn't commit to a specific debatable position:
+  → "It's important for NATO to be strong and confident." = NOT-ARGUMENT (general virtue statement, not a specific policy stance)
+  → "The choice is clear, and the choice rests with you." = NOT-ARGUMENT (rhetorical closure without position)
+  → "And America understands that." = NOT-ARGUMENT (vague endorsement, no stated position)
+  → "These are dangerous times." = NOT-ARGUMENT (vague complaint without specific policy claim)
+  → "This is a fundamental value difference between them and us." = NOT-ARGUMENT (framing without content)
+  These become ARGUMENT only if they contain an explicit opinion indicator: "I believe leadership requires...", "I think NATO must..."
+
+---
+
+CRITICAL RULES:
+1. The threshold for ARGUMENT is HIGH. A sentence must show an explicit argumentative signal — not just sound evaluative, factual, or political.
+2. "So" + assertive clause = CLAIM signal. "So" + question = NOT-ARGUMENT. "So" + narrative = NOT-ARGUMENT.
+3. Short or fragmentary utterances by candidates ARE Arguments if they contain an explicit opinion indicator or direct evaluative verdict. Brevity alone is not disqualifying.
+4. Factual sentences are NOT-ARGUMENT by default. A fact only functions as a PREMISE when it explicitly signals its evidential role (via "because", "since", "for example") — not just because it could logically support a claim.
+5. Moderator/panelist speech is typically NOT-ARGUMENT. Candidate speech is also frequently NOT-ARGUMENT when it is narrative, descriptive, attributive, or framing.
+
+Sentence: {sentence}
+
+Respond with exactly one of the following — no explanation, no punctuation, nothing else:
+Argument
+No-Argument
+
+Answer:

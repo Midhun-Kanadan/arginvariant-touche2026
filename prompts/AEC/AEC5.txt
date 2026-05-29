@@ -1,0 +1,53 @@
+You are an expert annotator for argument mining in online debate forums (CreateDebate and Internet Argument Corpus). Topics covered include gay marriage, gun control, death penalty, and evolution.
+
+ANNOTATION GUIDELINE:
+This dataset is built on the IMPLICIT MARKUP hypothesis: discourse connectives are the primary annotation signal. A sentence with a connective opener is an argumentative move; a sentence without one almost never is.
+
+RULE 1 — CONNECTIVE OPENER → ARGUMENT:
+If the sentence starts with any of the following discourse markers (as the first word or two), classify as ARGUMENT:
+
+  Single-word openers: "So", "But", "If", "First", "Firstly", "However"
+  Two-word openers:    "Sorry but", "Yes, but", "No, but", "Well, but",
+                       "Yeah but", "Right, but"
+
+This rule applies REGARDLESS of what follows — even if the sentence is:
+  - A rhetorical question:    "So what do you end up with?" → ARGUMENT
+  - A challenge:              "But for all your boasting, you haven't presented a single fact." → ARGUMENT
+  - A short inference:        "So you don't know." → ARGUMENT
+  - Sarcasm or irony:         "But guns don't kill, right?" → ARGUMENT
+  - A courtesy phrase:        "If I may interject a comment, I would suggest a few things." → ARGUMENT
+  - A proper noun reference:  "First Amendment: Congress shall make no law..." → ARGUMENT
+  - Addressed to the opponent:"If you think you can tell me what science is, you have serious problems." → ARGUMENT
+  - Meta-discourse:           "But my reasoning is completely different." → ARGUMENT
+
+SOLE EXCEPTION to Rule 1: the sentence, after the connective, is a PURE PERSONAL INSULT with zero topic content — no mention of the debate subject, no factual reference, nothing arguable.
+  NOT-ARGUMENT: "Sorry but you fail again." — pure personal attack, no topic substance
+  NOT-ARGUMENT: "First, I AIN'T your honey." — purely personal address, zero topic content
+  STILL ARGUMENT: "But you haven't presented a single fact to back up your claims." — challenges argumentation quality, has topic relevance
+
+RULE 2 — NO CONNECTIVE OPENER → NOT-ARGUMENT:
+If the sentence does NOT start with one of the connective patterns above, classify as NOT-ARGUMENT.
+
+This applies EVEN WHEN the sentence:
+  - Makes a strong-sounding claim:    "Creationists have to pretty much reject most of science." → NOT-ARGUMENT
+  - States a clear personal stance:   "i am against the death penalty for moral reasons." → NOT-ARGUMENT
+  - Contains mid-sentence "but/so":   "Science can aid one in understanding God, but a bible will never aid one in understanding science." → NOT-ARGUMENT
+  - Reports a fact or statistic:      "Nations that have more gun control than the US also have less gun deaths than the US." → NOT-ARGUMENT
+  - Uses "I believe" or "I agree":    "I completely agree, even the founding fathers were aware of the dangers of religious control." → NOT-ARGUMENT
+  - Contains evaluative language:     "Clearly SCOTUS is leaning towards fundamental right status." → NOT-ARGUMENT
+  - Addresses the opponent:           "You act as if totalitarianism is brought on by evolution." → NOT-ARGUMENT
+  - Makes a causal or logical claim:  "The reason for increased gun violence in Chicago is the increase in poverty." → NOT-ARGUMENT
+
+CRITICAL: "but", "if", "so", "first" appearing INSIDE a sentence (not as the opener) do NOT trigger Rule 1. The connective must be the first or second word of the sentence.
+
+DECISION PROCEDURE:
+1. Does the sentence start with So / But / If / First / Firstly / However (or a "Sorry/Yes/No but" opener)? → ARGUMENT (unless pure personal insult with no topic)
+2. Does it NOT start with one of these? → NOT-ARGUMENT
+
+Sentence: {sentence}
+
+Respond with exactly one of the following — no explanation, no punctuation, nothing else:
+Argument
+No-Argument
+
+Answer:

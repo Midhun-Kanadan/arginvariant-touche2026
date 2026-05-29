@@ -1,0 +1,37 @@
+You are an expert annotator for argument mining.
+
+DATASET CONTEXT: Tweets from Twitter/X debates on political and social topics, annotated using Persuasive Essay (PE) guidelines. The same tweets as TACO but with a stricter, claim-based annotation standard.
+
+TASK: Classify each tweet as "Argument" or "No-Argument".
+
+WHAT COUNTS AS AN ARGUMENT:
+A tweet is an Argument if it contains at least one CLAIM — a controversial statement the author is trying to persuade the reader to accept. Claims may be explicit or implicit.
+
+1. MAJOR CLAIM — the author's overall stance or position on the topic:
+   - "I believe abortion should be a woman's right in all circumstances"
+   - Signal phrases: "I believe", "In my opinion", "I think", "I strongly feel", "I am convinced that"
+
+2. CLAIM — a contested assertion supporting or attacking a position:
+   - "Abortion bans disproportionately harm low-income women"
+   - "Brexit will give the UK more control over its own laws"
+   - Rhetorical questions that implicitly assert a claim: "If Middle-earth is the whole world, why does the map show more?"
+
+IMPORTANT: A premise (a reason or evidence) ALONE without a claim is NOT sufficient to make a tweet an Argument under these guidelines.
+
+WHAT DOES NOT COUNT AS AN ARGUMENT:
+- Pure factual statements that are not controversial and need no justification
+- News reports or notifications without the author's own claim
+- Tweets that only provide reasons/evidence but contain no explicit or implicit claim
+- Pure insults without a substantive claim ("don't be a dick about it")
+- Tweets missing necessary context to interpret
+- Tweets written in non-English languages
+
+DECISION RULE: Does the tweet assert something controversial that the author wants you to accept as true — something you could reasonably doubt or disagree with? If yes → Argument. If it only states agreed-upon facts, shares news, or insults without arguing → No-Argument.
+
+Sentence: {sentence}
+
+Respond with exactly one of the following — no explanation, no punctuation, nothing else:
+Argument
+No-Argument
+
+Answer:

@@ -1,0 +1,125 @@
+You are an expert annotator for argument identification in financial earnings conference calls. Sentences come from the Q&A session answers of company executives in quarterly earnings calls — a spoken, persuasive genre where executives justify their positions to professional financial analysts.
+
+ANNOTATION GUIDELINE:
+A sentence is an ARGUMENT if it plays an argumentative role — either **asserting an evaluative position** (Claim) or **providing evidence explicitly framed as supporting an evaluative conclusion** (Premise).
+
+The central test: **Does this sentence state a judgment, assessment, or commitment that the speaker is defending — or frame data in service of such a judgment?**
+If it only discloses facts, explains mechanisms, announces plans, or transitions → NOT-ARGUMENT.
+
+---
+
+## ARGUMENT types
+
+**(A) CLAIM** — The executive takes a position or makes an evaluative judgment they are defending. Structural markers:
+
+- **First-person evaluative stance** — the speaker directly expresses a positive/negative judgment:
+  - "We believe this is very encouraging", "we are confident", "we are pleased with"
+  - "I'm excited about [X]" → ARGUMENT ("I'm excited about our SQL product" → ARGUMENT)
+  - "I'm looking forward to [outcome]" → ARGUMENT ("I'm looking forward to seeing that play out" → ARGUMENT)
+  - "I'm convinced that [X is right/best]" → ARGUMENT ("I'm convinced that making a great product is the best thing" → ARGUMENT)
+
+- **Direct evaluative trajectory assessment** — concise statement that a business metric is performing well or poorly:
+  - "Marketplace is growing nicely." → ARGUMENT
+  - "Those tests have gone well." → ARGUMENT
+  - "It was a record day for Amazon devices." → ARGUMENT ("record" = superlative performance claim)
+  - "They were very broad based." → ARGUMENT (evaluative quality of results)
+  - "It's really early, but nice pick up and nice buzz there." → ARGUMENT ("nice" = positive evaluation of traction)
+  - Note: these are direct assessments of ONE specific metric or result — not enumerations
+
+- **Explicit normative judgment**: "I think this is an important opportunity", "this is really the key", "that's what matters most"
+
+- **Concessive claim**: "While X, we believe Y" — taking a position despite an acknowledged challenge
+
+- **Strategic commitment with evaluative framing**: "We will continue to build our business there and do a great job for customers" → ARGUMENT ("great job" = evaluative commitment); "We'll keep investing in those areas" + "I think" framing → ARGUMENT
+
+- **Forward-looking assertion with evaluative outcome**: "We expect growth to continue" → ARGUMENT; "We're not expecting a material impact" → ARGUMENT (forward expectation under uncertainty)
+
+**(B) PREMISE** — Data or context **explicitly framed** as evidence for an evaluative conclusion:
+  - The sentence must contain BOTH data AND a framing phrase that presents it as evidence:
+  - "So when you think about X, it gives you a sense of Y" → ARGUMENT
+  - "If you remember X, which shows Y" → ARGUMENT
+  - "The increase was driven by X, which is why we're confident about Y" → ARGUMENT
+  - "A quarter ago we said X; now we see Y, which confirms our momentum" → ARGUMENT
+
+**The connective alone does NOT make a Premise.** "So" and "because" are often discourse transitions or causal explanations of facts. A Premise requires data + evaluative framing within the same sentence.
+
+---
+
+## NOT-ARGUMENT — six patterns
+
+**(1) Bare factual disclosures and data points** — reports a number, metric, or fact with no evaluative framing:
+  - "We had 38% in both the June and September quarter." → NOT-ARGUMENT (bare metric)
+  - "We had about $2 billion left as of the end of the quarter." → NOT-ARGUMENT (bare metric)
+  - "The installed base is up 80% over the last two years." → NOT-ARGUMENT (bare statistic)
+  - "We have three physical stores; Seattle, San Diego, and Portland." → NOT-ARGUMENT (bare fact)
+  - "We don't disclose the number of individual subscribers." → NOT-ARGUMENT
+  - Contrast: "It was a record day for Amazon devices." → ARGUMENT (superlative = evaluative claim)
+
+**(2) Bare plan / intent declarations** — states what will be done without justifying it with evaluation:
+  - "We're going to significantly increase our spend in that area." → NOT-ARGUMENT
+  - "And Ad Breaks is going to allow us to have a monetization strategy." → NOT-ARGUMENT
+  - "We're making substantial product and engineering investments." → NOT-ARGUMENT
+  - "We are also continuing to invest in areas like community operations." → NOT-ARGUMENT
+  - Contrast: "We will continue to build our business there and do a great job for customers." → ARGUMENT ("great job" = evaluative)
+
+**(3) Discourse frame / topic introducers** — announces what will be said, points to content without arguing:
+  - "Let me start at the highest level, which is..." → NOT-ARGUMENT
+  - "So the net impact was not material, but I do want to highlight a few areas." → NOT-ARGUMENT
+  - "I would point out that we actually grew in constant currency." → NOT-ARGUMENT (pointing ≠ arguing)
+  - "When I think about the on-prem number I really divide it into..." → NOT-ARGUMENT (framing)
+
+**(4) Factual context / mechanism explanations** — explains WHY or HOW something happened, without making a new evaluative claim:
+  - "The Nokia agreement ended, so that $650M revenue simply goes away." → NOT-ARGUMENT (explains revenue loss)
+  - "Because customers have different mix profiles depending on where they start." → NOT-ARGUMENT (explains a fact)
+  - "And so when you look at our results, our OpEx was up 10%." → NOT-ARGUMENT (reports with transition)
+  - "So for example, when you log into Windows, you are logging in with Microsoft account." → NOT-ARGUMENT (mechanism)
+  - "Sometimes new workloads start with IaaS and then scale to higher-layer services." → NOT-ARGUMENT (explains customer behavior)
+  - Test: does the sentence explain the cause/mechanism behind a fact without itself making a new assertion about whether that is good or bad? → NOT-ARGUMENT
+
+**(5) Enumerative / elaborative descriptions** — lists services, products, or facts as background elaboration:
+  - "We have many other Services businesses that are doing very well." → NOT-ARGUMENT (general enumeration)
+  - "We've added 4,000 skills to Alexa since I last spoke to you." → NOT-ARGUMENT (metric update as elaboration)
+  - "We have a lot of value that is across cloud services, whether it's Xbox Live, Windows Update, Office 365..." → NOT-ARGUMENT (enumerative context)
+  - "Lots of very popular, critically acclaimed shows have come out, things like Homecoming, Jack Ryan..." → NOT-ARGUMENT (listing)
+  - Contrast: "Marketplace is growing nicely." → ARGUMENT (direct evaluative claim about ONE metric)
+  - Key distinction: listing MULTIPLE things with a general evaluative modifier ≠ Argument; direct evaluative claim about ONE specific thing = Argument
+
+**(6) Hedged observations / general corporate principles** — epistemic hedging about external conditions or universal business principles:
+  - "We do think that based on the amount of rumors, there is some pause in our current numbers." → NOT-ARGUMENT (hedged observation about market condition, not a defended corporate position)
+  - "We think it'll be good for the business over the long-term, but this is what people are telling us they want." → NOT-ARGUMENT (speculative + deferring to customers)
+  - "Obviously, we want to make the right decisions in the best interest of long-term shareholders." → NOT-ARGUMENT (universal principle, not a specific claim)
+  - "I think we're making progress, but we have a long way to go." → NOT-ARGUMENT (hedged progress acknowledgment)
+  - Contrast: "I'm excited about our SQL product." → ARGUMENT (direct personal evaluative stance)
+
+---
+
+## Contrastive pairs
+
+| NOT-ARGUMENT | ARGUMENT |
+|---|---|
+| "We had 38% in both the June and September quarters." | "It was a record day for Amazon devices." |
+| "We have many Services businesses that are doing very well." | "Marketplace is growing nicely." |
+| "We're going to significantly increase our spend." | "We will continue to build our business there and do a great job for customers." |
+| "We do think there's a pause in our current numbers." | "I'm excited about our SQL product." |
+| "The Nokia agreement ended, so that $650M simply goes away." | "So when you think about 15M subscriptions added in a quarter, it really gives you a sense of the momentum." |
+| "We typically don't go into this level of detail." | "At the highest level, I think our competitive position has never been stronger." |
+| "Some services are scaling quickly, so we tend to expand gross margins there." | "Our OpEx growth of 10% — the lowest in years — shows the leverage in our model as we scale." |
+
+---
+
+## Critical rules
+
+1. **Raw numbers, metrics, and data points are NOT Arguments** unless the sentence also contains an explicit evaluative conclusion or framing phrase ("gives you a sense of", "shows the momentum", "confirms").
+2. **"So", "because", "therefore" alone do NOT make a Premise.** They must connect data to an evaluative conclusion within the sentence.
+3. **Evaluative adjectives in a product/service description or list are NOT Claim signals** — only direct evaluative assessments of performance ("growing nicely", "record day", "went well", "I'm excited about") qualify.
+4. **Plan declarations ("we will / we're going to X") are NOT Arguments** unless the sentence contains an evaluative word assessing the outcome ("do a great job", "create great value").
+5. **Procedural and social openers are NOT-ARGUMENT:** "I'll take it", "thank you", "sure", "yes", "let me answer".
+6. **Enumerating multiple things that are good ≠ Argument.** A direct evaluative claim about one specific metric or result = Argument.
+
+Sentence: {sentence}
+
+Respond with exactly one of the following — no explanation, no punctuation, nothing else:
+Argument
+No-Argument
+
+Answer:
